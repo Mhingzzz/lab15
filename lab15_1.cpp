@@ -1,10 +1,42 @@
 #include <iostream>
 using namespace std;
 
+
+// insertion 
+
+void show(int d[],int N){
+    
+    for (int i = 0; i < N; i++)
+    {
+        cout << d[i] << " ";
+    }
+    cout << endl;
+}
+
+
 template <typename T>
 void insertionSort(T d[],int N){
+    int i, j; 
+    T key;
+    for (i = 1; i < N; i++)
+    { 
+        key = d[i]; 
+        j = i - 1; 
 
+        
+        while (j >=0 && d[j] < key)
+        { 
+            d[j + 1] = d[j]; 
+            j = j - 1; 
+        }
+        
+        d[j + 1] = key;
+        cout << "Pass " << i  <<":";
+        show(d,N);
+    } 
 }
+
+
 
 int main(){
 	int a[10] = {12,25,30,44,2,0,4,7,55,25};
@@ -17,3 +49,4 @@ int main(){
 	cout << "\nSorted Array:";
 	for(int i = 0; i < 10; i++) cout << a[i] << " ";	
 }
+
